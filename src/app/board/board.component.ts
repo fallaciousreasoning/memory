@@ -17,4 +17,8 @@ export class BoardComponent {
         card.faceUp = true;
         setTimeout(() => this.game.pickCard(card), 0);
     }
+
+    restart() {
+        this.game.resetCards();
+    }
 }

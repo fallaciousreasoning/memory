@@ -4,7 +4,7 @@ import { Scores } from './scores';
 function* getCardUrls() {
     // Get a list of fifteen urls where all but one are duplicates. The times ten is because the cards near
     // each other are really similar, which makes the game super hard.
-    const urls = [...Array(15).keys()].map(i => `https://picsum.photos/id/${Math.round(i/2)*10}/200/300`);
+    const urls = [...Array(15).keys()].map(i => `https://picsum.photos/id/${Math.round(i / 2) * 10}/200/300`);
 
     // Return the urls in a random order.
     while (urls.length !== 0) {
@@ -48,6 +48,15 @@ export class Game {
             scores[card.solver] += 0.5;
         }
         return scores;
+    }
+
+    get winner() {
+        if (!this.over)
+            return;
+
+        // Return the first player, when the players are sorted by score.
+        const scores = this.scores;
+        return [...this.players].sort((p1, p2) => scores[p2] - scores[p1])[0];
     }
 
     constructor() {
