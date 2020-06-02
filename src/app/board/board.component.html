@@ -1,5 +1,5 @@
 <div class="board">
-    <div class="card" *ngFor="let card of game.cards">
+    <div class="card" *ngFor="let card of game.cards" (click)="onCardClicked(card)">
         <app-card [card]="card">
 
         </app-card>
