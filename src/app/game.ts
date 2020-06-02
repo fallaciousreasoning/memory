@@ -28,6 +28,11 @@ export class Game {
         return this.players[this.turn % this.players.length];
     }
 
+    get over() {
+        // The game is finished if there is one unsolved card left over (because we have an odd number of cards).
+        return this.getSolvedCards().length === this.cards.length - 1;
+    }
+
     constructor() {
         // Get a new set of cards.
         this.resetCards();
