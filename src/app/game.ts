@@ -35,12 +35,12 @@ export class Game {
 
     // The currently picked cards.
     getPickedCards() {
-        return this.cards.filter(c => c.faceUp && !c.solved);
+        return this.cards.filter(c => c.faceUp && !c.solver);
     }
 
     // The solved cards.
     getSolvedCards() {
-        return this.cards.filter(c => c.solved);
+        return this.cards.filter(c => c.solver);
     }
 
     // Reset the cards in the game.
@@ -48,7 +48,6 @@ export class Game {
         this.cards = [];
         for (const url of getCardUrls()) {
             this.cards.push({
-                solved: false,
                 faceUp: false,
                 value: url
             });
@@ -56,7 +55,7 @@ export class Game {
     }
 
     pickCard(card: Card) {
-        if (card.solved) {
+        if (card.solver) {
             console.warn("Can't pick an already solved card!");
             return;
         }
@@ -72,7 +71,7 @@ export class Game {
         // If there was a match, set the cards to solved and let the current player keep playing!
         if (picked[0].value === picked[1].value) {
             for (const card of picked)
-                card.solved = true;
+                card.solver = this.currentPlayer;
         } else {
             for (const card of picked)
                 card.faceUp = false;

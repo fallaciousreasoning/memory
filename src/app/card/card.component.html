@@ -1,4 +1,4 @@
-<div class="card" [ngClass]="{ 'solved': card.solved}">
+<div class="card" [ngClass]="{ 'solved': !!card.solver}">
     <img
         class="{{card.faceUp ? 'showing-card' : 'hidden-card'}}"
         alt="A card..."

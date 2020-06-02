@@ -1,5 +1,5 @@
 export interface Card {
-    solved: boolean;
+    solver?: string;
     faceUp: boolean;
     value: string;
 }
