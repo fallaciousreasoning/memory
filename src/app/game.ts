@@ -1,4 +1,5 @@
 import { Card } from './card';
+import { Scores } from './scores';
 
 function* getCardUrls() {
     // Get a list of fifteen urls where all but one are duplicates. The times ten is because the cards near
@@ -31,6 +32,22 @@ export class Game {
     get over() {
         // The game is finished if there is one unsolved card left over (because we have an odd number of cards).
         return this.getSolvedCards().length === this.cards.length - 1;
+    }
+
+    get scores(): Scores {
+        const scores: Scores = {};
+        for (const player of this.players)
+            scores[player] = 0;
+
+        for (const card of this.cards) {
+            // Card isn't solved, so doesn't contribute to score.
+            if (!card.solver)
+                continue;
+
+            // There are two cards in a match, so each one scores half a point.
+            scores[card.solver] += 0.5;
+        }
+        return scores;
     }
 
     constructor() {
