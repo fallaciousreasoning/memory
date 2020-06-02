@@ -1,13 +1,13 @@
 import { Card } from './card';
 
 function* getCardUrls() {
-    // Get a list of fifteen urls where all but one are duplicates.
+    // Get a list of fifteen urls where all but one are duplicates. The times ten is because the cards near
+    // each other are really similar, which makes the game super hard.
     const urls = [...Array(15).keys()].map(i => `https://picsum.photos/id/${Math.round(i/2)*10}/200/300`);
 
     // Return the urls in a random order.
     while (urls.length !== 0) {
         const i = Math.floor(Math.random() * urls.length);
-        console.log(urls[i])
         // Remove the url from our array and yield it.
         yield urls.splice(i, 1)[0]
     }
@@ -53,7 +53,6 @@ export class Game {
                 value: url
             });
         }
-        console.log(Array.from(getCardUrls()))
     }
 
     pickCard(card: Card) {

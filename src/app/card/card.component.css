@@ -9,6 +9,10 @@
     height: 200px;
 }
 
+.card.solved {
+    border-color: red;
+}
+
 .hidden-card {
     opacity: 0;
     transition: opacity 0.3s;
