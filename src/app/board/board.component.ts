@@ -13,6 +13,10 @@ export class BoardComponent {
 
     onCardClicked(card: Card) {
       card.faceUp = true;
+      // Don't actually pick the card this frame.
+      // This gives angular a chance to apply the
+      // class we want and play the animation to
+      // fade out.
       setTimeout(() => this.game.pickCard(card), 0);
     }
 }
