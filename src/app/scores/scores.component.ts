@@ -9,7 +9,10 @@ import { Scores } from '../scores';
 export class ScoresComponent implements OnInit {
   @Input()
   scores: Scores;
-  
+
+  @Input()
+  currentPlayer: string;
+
   constructor() { }
 
   ngOnInit(): void {

@@ -1,3 +1,4 @@
 <p *ngFor="let playerScore of scores | keyvalue">
-    <span>{{playerScore.key}}: </span> {{playerScore.value}}
+  <span [ngClass]="{ 'current-player': playerScore.key === currentPlayer}">{{playerScore.key}}: </span>
+  {{playerScore.value}}
 </p>

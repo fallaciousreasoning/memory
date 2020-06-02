@@ -1,7 +1,7 @@
 <button *ngIf="game.over">
     Game Over! Restart?
 </button>
-<app-scores [scores]="game.scores"> </app-scores>
+<app-scores [scores]="game.scores" [currentPlayer]="game.currentPlayer"> </app-scores>
 <div class="board">
     <div class="card" *ngFor="let card of game.cards" (click)="onCardClicked(card)">
         <app-card [card]="card">
