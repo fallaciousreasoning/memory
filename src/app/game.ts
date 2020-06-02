@@ -2,7 +2,7 @@ import { Card } from './card';
 
 function* getCardUrls() {
     // Get a list of fifteen urls where all but one are duplicates.
-    const urls = [...Array(15).keys()].map(i => `https://picsum.photos/seed/${Math.round(i/2)}/200/300`);
+    const urls = [...Array(15).keys()].map(i => `https://picsum.photos/id/${Math.round(i/2)*10}/200/300`);
 
     // Return the urls in a random order.
     while (urls.length !== 0) {
