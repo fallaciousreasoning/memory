@@ -1,6 +1,6 @@
-<div class="card">
+<div class="card" (click)="onClick()">
     <img
-        *ngIf="card.faceUp"
+        class="{{card.faceUp ? 'showing-card' : 'hidden-card'}}"
         alt="A card..."
         src="{{card.value}}"/>
 </div>
