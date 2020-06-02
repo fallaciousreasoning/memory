@@ -1,4 +1,4 @@
-<button *ngIf="game.over">
+<button *ngIf="game.over" (click)="restart()">
     {{game.winner}} won! Restart?
 </button>
 <app-scores [scores]="game.scores" [currentPlayer]="game.currentPlayer"> </app-scores>
