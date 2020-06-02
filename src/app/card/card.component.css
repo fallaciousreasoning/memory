@@ -10,7 +10,9 @@
 }
 
 .hidden-card {
-    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    transition-delay: 1s;
 }
 
 .showing-card {

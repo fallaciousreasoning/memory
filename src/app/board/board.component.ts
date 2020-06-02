@@ -18,6 +18,8 @@ export class BoardComponent implements OnInit {
     }
 
     onCardClicked(card: Card) {
-        this.game.pickCard(card);
+        card.faceUp = true;
+        setTimeout(() => this.game.pickCard(card), 0);
+        // this.game.pickCard(card);
     }
 }
