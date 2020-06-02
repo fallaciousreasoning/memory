@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../card';
 
 @Component({
@@ -7,6 +7,7 @@ import { Card } from '../card';
     styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+    @Input()
     card: Card = {
         value: '',
         faceUp: false
