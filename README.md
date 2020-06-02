@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
+A simple game of Memory written for an interview with [Cubic](https://https://www.cubic.com/).
+
+Each player may pick two cards. If the cards match, they are awarded one point. If the cards do not match, the cards are flipped face down. In either case, the next player may take a turn.
+
+The game continues until there are no pairs remaining (there will always be one card left over).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
