@@ -1,5 +1,18 @@
 import { Card } from './card';
 
+function* getCardUrls() {
+    // Get a list of fifteen urls where all but one are duplicates.
+    const urls = [...Array(15).keys()].map(i => `https://picsum.photos/seed/${Math.round(i/2)}/200/300`);
+
+    // Return the urls in a random order.
+    while (urls.length !== 0) {
+        const i = Math.floor(Math.random() * urls.length);
+        console.log(urls[i])
+        // Remove the url from our array and yield it.
+        yield urls.splice(i, 1)[0]
+    }
+}
+
 export class Game {
     // An array of cards in the game.
     cards: Card[];
@@ -32,16 +45,15 @@ export class Game {
 
     // Reset the cards in the game.
     resetCards() {
-        const randomCard = (seed: string | number) => `https://picsum.photos/seed/${seed}/200/300`;
-
         this.cards = [];
-        for (let i = 0; i < 15; ++i) {
+        for (const url of getCardUrls()) {
             this.cards.push({
                 solved: false,
                 faceUp: false,
-                value: randomCard(i)
+                value: url
             });
         }
+        console.log(Array.from(getCardUrls()))
     }
 
     pickCard(card: Card) {
