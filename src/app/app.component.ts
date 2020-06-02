@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Game } from './game';
+import { Card } from './card';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Memory';
+  game = new Game();
+
+  restart() {
+    this.game.resetCards();
+  }
 }

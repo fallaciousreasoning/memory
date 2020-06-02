@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Card } from '../card';
+import { Component, Input } from '@angular/core';
 import { Game } from '../game';
+import { Card } from '../card';
 
 @Component({
     selector: 'app-board',
@@ -8,17 +8,11 @@ import { Game } from '../game';
     styleUrls: ['./board.component.css']
 })
 export class BoardComponent {
-    game = new Game();
-
-    constructor() {
-    }
+    @Input()
+    game: Game;
 
     onCardClicked(card: Card) {
-        card.faceUp = true;
-        setTimeout(() => this.game.pickCard(card), 0);
-    }
-
-    restart() {
-        this.game.resetCards();
+      card.faceUp = true;
+      setTimeout(() => this.game.pickCard(card), 0);
     }
 }

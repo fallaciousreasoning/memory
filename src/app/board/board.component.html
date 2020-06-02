@@ -1,7 +1,3 @@
-<button *ngIf="game.over" (click)="restart()">
-    {{game.winner}} won! Restart?
-</button>
-<app-scores [scores]="game.scores" [currentPlayer]="game.currentPlayer"> </app-scores>
 <div class="board">
     <div class="card" *ngFor="let card of game.cards" (click)="onCardClicked(card)">
         <app-card [card]="card">

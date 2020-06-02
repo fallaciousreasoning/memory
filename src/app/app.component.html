@@ -1,4 +1,6 @@
-<h1>{{title}}</h1>
-<app-board>
-
-</app-board>
+<h1>Memory</h1>
+<button *ngIf="game.over" (click)="restart()">
+  {{game.winner}} won! Restart?
+</button>
+<app-scores [scores]="game.scores" [currentPlayer]="game.currentPlayer"> </app-scores>
+<app-board [game]="game"> </app-board>
