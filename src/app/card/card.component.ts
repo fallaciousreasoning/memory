@@ -8,12 +8,13 @@ import { Card } from '../card';
 })
 export class CardComponent implements OnInit {
     card: Card = {
-        value: ''
+        value: '',
+        faceUp: false
     }
 
-    constructor() {}
+    constructor() { }
 
     ngOnInit() {
-
+        console.log("init")
     }
 }
